@@ -4,7 +4,7 @@ import { today, hebcalUrlforToday, yesterday, hebcalUrlforYesterday, tomorrow, h
 function App() {
   return (
     <div className="App">
-      <img alt="Uledet" class="appImage" src="/einstein.gif" />
+      <img alt="Uledet" class="appImage" src="/uledet/einstein.gif" />
       <div className="app-container">
         <Uledet title="Hier" day={yesterday} url={hebcalUrlforYesterday} />
         <Uledet title="Aujourd'hui" day={today} url={hebcalUrlforToday} />
