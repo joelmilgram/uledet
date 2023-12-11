@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Uledet from './Uledet';
+import { today, hebcalUrlforToday, yesterday, hebcalUrlforYesterday, tomorrow, hebcalUrlforTomorrow } from "./dates"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img alt="Uledet" class="appImage" src="/einstein.gif" />
+      <div className="app-container">
+        <Uledet title="Hier" day={yesterday} url={hebcalUrlforYesterday} />
+        <Uledet title="Aujourd'hui" day={today} url={hebcalUrlforToday} />
+        <Uledet title="Demain" day={tomorrow} url={hebcalUrlforTomorrow} />
+      </div>
+
     </div>
   );
 }
