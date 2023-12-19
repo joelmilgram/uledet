@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/uledet/static/css/main.a999150e.css",
-    "main.js": "/uledet/static/js/main.f590a0dd.js",
+    "main.css": "/uledet/static/css/main.6c26ff8f.css",
+    "main.js": "/uledet/static/js/main.9439320e.js",
     "index.html": "/uledet/index.html",
-    "main.a999150e.css.map": "/uledet/static/css/main.a999150e.css.map",
-    "main.f590a0dd.js.map": "/uledet/static/js/main.f590a0dd.js.map"
+    "main.6c26ff8f.css.map": "/uledet/static/css/main.6c26ff8f.css.map",
+    "main.9439320e.js.map": "/uledet/static/js/main.9439320e.js.map"
   },
   "entrypoints": [
-    "static/css/main.a999150e.css",
-    "static/js/main.f590a0dd.js"
+    "static/css/main.6c26ff8f.css",
+    "static/js/main.9439320e.js"
   ]
 }
