@@ -25,11 +25,9 @@ const Uledet = ({ title, day, url }) => {
 
     return (
         <div className='date-container'>
-            <h2>{title}</h2>
-            <div className={title === "Aujourd'hui" ? "today" : "other-day"}>
-                {day} - {(ayom)}
+            <div className={title === "Aujourd'hui" ? "day today" : "day"}>
+                {title} : {day} - {(ayom)}
             </div>
-            <br />
             {events && <div>
                 <h4>Evénements dans le calendrier hébraïque :</h4>
                 <ul>
@@ -38,7 +36,7 @@ const Uledet = ({ title, day, url }) => {
                     ))}
                 </ul>
             </div>}
-            {uledets && <div>
+            {uledets && uledets.length > 0 && <div>
                 <h4>Anniversaires :</h4>
                 <ul>
                     {uledets.map((u) => (
