@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import anniversaires from "./anniversaires"
 
-const Uledet = ({ title, day, url }) => {
+const Uledet = ({ title, day, url, target }) => {
     const [ayom, setAyom] = useState("")
     const [events, setEvents] = useState(null)
     const [uledets, setUledets] = useState([])
@@ -20,7 +20,9 @@ const Uledet = ({ title, day, url }) => {
         // Recherche dans la base
         var dayWithoutYear = day.slice(0, day.length - 5);
         var ayomWithoutYear = ayom.slice(0, ayom.length - 5);
-        setUledets(anniversaires.filter((a) => (a[1].slice(0, a[1].length - 5) === dayWithoutYear || a[2].slice(0, a[2].length - 5) === ayomWithoutYear)))
+        setUledets(anniversaires.filter((a) => (
+            a.target?.includes(target) &&
+            (a.greg_date.slice(0, a.greg_date.length - 5) === dayWithoutYear || (a.heb_cal && a.heb_cal.slice(0, a.heb_cal.length - 5) === ayomWithoutYear)))))
     }, [ayom]);
 
     return (
@@ -39,9 +41,20 @@ const Uledet = ({ title, day, url }) => {
             {uledets && uledets.length > 0 && <div>
                 <h4>Anniversaires :</h4>
                 <ul>
-                    {uledets.map((u) => (
-                        <li>{u[0] + " : " + u[1] + " - " + u[2]}</li>
-                    ))}
+                    {uledets.map((u) => {
+                        const typeSymbol = {
+                            birth: "🎂",
+                            death: "🕯️",
+                            wedding: "💍",
+                            event: "📅"
+                        }[u.type] || "❓";
+                        return (
+                            <li title={u.notes || ""} style={{ cursor: "pointer", listStyle: "none", marginLeft: "-1em" }} key={u.type + "_" + u.name}>
+                                {typeSymbol} : {u.name} ({u.greg_date + (u.heb_cal ? " - " : "") + u.heb_cal})
+                                <b>{u.notes ? " *" : ""}</b>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>}
         </div >
