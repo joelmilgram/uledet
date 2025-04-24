@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <img alt="Uledet" className="appImage" src="/uledet/einstein.gif" />
+      <img alt="Uledet" className="appImage" src={`${process.env.PUBLIC_URL}/einstein.gif`} />
       <div className="app-container">
         <h1>Bonjour {who} ({currentDateTime}), </h1>
         <Uledet title="Hier" day={yesterday} url={hebcalUrlforYesterday} target={who} />
