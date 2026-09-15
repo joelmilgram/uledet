@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Uledet from './Uledet';
+import Uledet from './Uledet.jsx';
 import { today, hebcalUrlforToday, yesterday, hebcalUrlforYesterday, tomorrow, hebcalUrlforTomorrow } from "./dates"
 import { useLocation, BrowserRouter } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <img alt="Uledet" className="appImage" src={`${process.env.PUBLIC_URL}/einstein.gif`} />
+      <img alt="Uledet" className="appImage" src="/einstein.gif" />
       <div className="app-container">
         <h1>Bonjour {who} ({currentDateTime}), </h1>
         <Uledet title="Hier" day={yesterday} url={hebcalUrlforYesterday} target={who} />
