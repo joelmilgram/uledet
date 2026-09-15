@@ -6,6 +6,7 @@ import { useLocation, BrowserRouter } from 'react-router-dom';
 function App() {
   const query = new URLSearchParams(useLocation().search);
   const who = query.get('who') || '';
+  const baseUrl = import.meta.env.BASE_URL;
 
   const currentDateTime = new Date().toLocaleString();
 
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <img alt="Uledet" className="appImage" src="/einstein.gif" />
+      <img alt="Uledet" className="appImage" src={`${baseUrl}einstein.gif`} />
       <div className="app-container">
         <h1>Bonjour {who} ({currentDateTime}), </h1>
         <Uledet title="Hier" day={yesterday} url={hebcalUrlforYesterday} target={who} />
@@ -30,8 +31,10 @@ function App() {
 }
 
 export default function WrappedApp() {
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   );
